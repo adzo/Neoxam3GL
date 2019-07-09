@@ -1,0 +1,5 @@
+package entities;
+
+public enum Role {
+	MANAGER,PROJECT_LEADER,ADMINISTRATOR,TEAM_LEADER,TEAM_MANAGER
+}
