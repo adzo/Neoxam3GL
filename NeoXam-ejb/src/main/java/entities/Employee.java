@@ -27,6 +27,11 @@ public class Employee extends User implements Serializable{
 	@OneToMany(mappedBy = "employee")
 	private List<Holiday> holidays;
 	
+	@OneToMany(mappedBy= "sender")
+	private List<Message> sent;
+	@OneToMany(mappedBy="receiver")
+	private List<Message> received;
+	
 	
 	/**
 	 * 
