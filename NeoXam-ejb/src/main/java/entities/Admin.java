@@ -1,8 +1,14 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Admin extends User {
+import javax.persistence.Entity;
+
+@Entity
+public class Admin extends User implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	private String userName;
 
 	/**

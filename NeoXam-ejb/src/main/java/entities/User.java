@@ -1,17 +1,35 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class User implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.TABLE)
 	private int id;
 	private String firstName;
 	private String lastName;
 	private Date dateNaissance;
 	private String email;
 	private String password;
+	@Embedded
 	private Addresse addresse;
 	private Date registrationDate;
+	@Enumerated(EnumType.STRING)
 	private UserStatus status;
 	private boolean permis;
 	/**

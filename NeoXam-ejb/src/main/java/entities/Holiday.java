@@ -1,13 +1,38 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Holiday {
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+@Entity
+public class Holiday implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private Date dateStart;
 	private int nbrDays;
+	@Enumerated(EnumType.STRING)
 	private HolidaysStatus status;
+	
+	// Associations:
+	@ManyToOne
+	@JoinColumn(name="FK_EMPLOYEE_HOLIDAY")
+	private Employee employee;
+	
+	
 	/**
 	 * 
 	 */

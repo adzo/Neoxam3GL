@@ -1,8 +1,36 @@
 package entities;
 
-public class CV {
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
+public class CV implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String path;
+	
+	
+	//Association:
+	@OneToMany(mappedBy = "cv")
+	private List<ExperienceProfessionelle> experienceProfessionelles;
+	@OneToMany(mappedBy = "cv")
+	private List<Formation> formations;
+	@OneToMany(mappedBy = "cv")	
+	private List<Hobbie> hobbies;
+	@OneToMany(mappedBy = "cv")
+	private List<Skills> skills;
+	
+	
+	
 	/**
 	 * 
 	 */

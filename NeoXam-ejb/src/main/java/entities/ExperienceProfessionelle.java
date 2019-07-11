@@ -1,15 +1,34 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class ExperienceProfessionelle {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+@Entity
+public class ExperienceProfessionelle implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private Date dateDebut;
 	private Date dateFin;
 	private String societe;
 	private String position;
 	private String description;
+	
+	//Navigation properties: Associations:
+	@ManyToOne
+	@JoinColumn(name="FK_CV_EXPERIENCE")
+	private CV cv;
+	
+	
 	/**
 	 * 
 	 */

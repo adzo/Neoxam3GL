@@ -1,15 +1,33 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
-public class Employee extends User{
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.OneToMany;
+
+@Entity
+public class Employee extends User implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 
 	private int cin;
 	private Date recruitmentDate;
 	private int nbChildren;
+	@Enumerated(EnumType.STRING)
 	private Role positionHeld;
 	private int salary;
 	private int bonusPts;
+	
+	
+	//Associations:
+	@OneToMany(mappedBy = "employee")
+	private List<Holiday> holidays;
+	
+	
 	/**
 	 * 
 	 */
