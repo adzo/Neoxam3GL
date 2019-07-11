@@ -92,5 +92,6 @@
     <module>NeoXam-ejb</module>
     <module>NeoXam-web</module>
     <module>NeoXam-ear</module>
+    <module>NeoXam-REST</module>
   </modules>
 </project>
