@@ -7,14 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class CV implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String path;
 	
@@ -28,8 +29,11 @@ public class CV implements Serializable{
 	private List<Hobbie> hobbies;
 	@OneToMany(mappedBy = "cv")
 	private List<Skills> skills;
-	
-	
+	@OneToMany(mappedBy="cv")
+	private List<Language> langues;
+	@OneToOne
+	@MapsId
+	private Candidate candidate;
 	
 	/**
 	 * 

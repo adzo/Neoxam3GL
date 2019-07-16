@@ -1,0 +1,993 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="neoxamdbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="255" />
+          <Property Name="city" Type="varchar" MaxLength="255" />
+          <Property Name="street" Type="varchar" MaxLength="255" />
+          <Property Name="zipCode" Type="int" Nullable="false" />
+          <Property Name="dateNaissance" Type="datetime" Precision="0" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="firstName" Type="varchar" MaxLength="255" />
+          <Property Name="lastName" Type="varchar" MaxLength="255" />
+          <Property Name="password" Type="varchar" MaxLength="255" />
+          <Property Name="permis" Type="bit" Nullable="false" />
+          <Property Name="registrationDate" Type="datetime" Precision="0" />
+          <Property Name="status" Type="varchar" MaxLength="255" />
+          <Property Name="userName" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="answer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="answerBody" Type="varchar" MaxLength="255" />
+          <Property Name="correct" Type="bit" Nullable="false" />
+          <Property Name="FK_ANSWER_QUESTION" Type="int" />
+        </EntityType>
+        <EntityType Name="candidate">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="255" />
+          <Property Name="city" Type="varchar" MaxLength="255" />
+          <Property Name="street" Type="varchar" MaxLength="255" />
+          <Property Name="zipCode" Type="int" Nullable="false" />
+          <Property Name="dateNaissance" Type="datetime" Precision="0" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="firstName" Type="varchar" MaxLength="255" />
+          <Property Name="lastName" Type="varchar" MaxLength="255" />
+          <Property Name="password" Type="varchar" MaxLength="255" />
+          <Property Name="permis" Type="bit" Nullable="false" />
+          <Property Name="registrationDate" Type="datetime" Precision="0" />
+          <Property Name="status" Type="varchar" MaxLength="255" />
+          <Property Name="socialStatus" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="candidateresponse">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCandidat" Type="int" Nullable="false" />
+          <Property Name="idQuestion" Type="int" Nullable="false" />
+          <Property Name="idResponse" Type="int" Nullable="false" />
+          <Property Name="idTest" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cv">
+          <Key>
+            <PropertyRef Name="candidate_id" />
+          </Key>
+          <Property Name="path" Type="varchar" MaxLength="255" />
+          <Property Name="candidate_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="255" />
+          <Property Name="city" Type="varchar" MaxLength="255" />
+          <Property Name="street" Type="varchar" MaxLength="255" />
+          <Property Name="zipCode" Type="int" Nullable="false" />
+          <Property Name="dateNaissance" Type="datetime" Precision="0" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="firstName" Type="varchar" MaxLength="255" />
+          <Property Name="lastName" Type="varchar" MaxLength="255" />
+          <Property Name="password" Type="varchar" MaxLength="255" />
+          <Property Name="permis" Type="bit" Nullable="false" />
+          <Property Name="registrationDate" Type="datetime" Precision="0" />
+          <Property Name="status" Type="varchar" MaxLength="255" />
+          <Property Name="bonusPts" Type="int" Nullable="false" />
+          <Property Name="cin" Type="int" Nullable="false" />
+          <Property Name="nbChildren" Type="int" Nullable="false" />
+          <Property Name="positionHeld" Type="varchar" MaxLength="255" />
+          <Property Name="recruitmentDate" Type="datetime" Precision="0" />
+          <Property Name="salary" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="experienceprofessionelle">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dateDebut" Type="datetime" Precision="0" />
+          <Property Name="dateFin" Type="datetime" Precision="0" />
+          <Property Name="description" Type="varchar" MaxLength="255" />
+          <Property Name="position" Type="varchar" MaxLength="255" />
+          <Property Name="societe" Type="varchar" MaxLength="255" />
+          <Property Name="FK_CV_EXPERIENCE" Type="int" />
+        </EntityType>
+        <EntityType Name="formation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dateDebut" Type="datetime" Precision="0" />
+          <Property Name="dateFin" Type="datetime" Precision="0" />
+          <Property Name="lieux" Type="varchar" MaxLength="255" />
+          <Property Name="nom" Type="varchar" MaxLength="255" />
+          <Property Name="FK_CV_FORMATION" Type="int" />
+        </EntityType>
+        <EntityType Name="hobbie">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="FK_CV_HOBBIE" Type="int" />
+        </EntityType>
+        <EntityType Name="holiday">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dateStart" Type="datetime" Precision="0" />
+          <Property Name="nbrDays" Type="int" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="255" />
+          <Property Name="type" Type="varchar" MaxLength="255" />
+          <Property Name="FK_EMPLOYEE_HOLIDAY" Type="int" />
+        </EntityType>
+        <EntityType Name="language">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lang" Type="varchar" MaxLength="255" />
+          <Property Name="level" Type="varchar" MaxLength="255" />
+          <Property Name="FK_CV_LANGUE" Type="int" />
+        </EntityType>
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="body" Type="varchar" MaxLength="255" />
+          <Property Name="date" Type="datetime" Precision="0" />
+          <Property Name="object" Type="varchar" MaxLength="255" />
+          <Property Name="reciever_id" Type="int" />
+          <Property Name="sender_id" Type="int" />
+        </EntityType>
+        <EntityType Name="question">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="questionBody" Type="varchar" MaxLength="255" />
+          <Property Name="FK_TEST_QUESTION" Type="int" />
+        </EntityType>
+        <EntityType Name="skills">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="level" Type="varchar" MaxLength="255" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="FK_CV_SKILLS" Type="int" />
+        </EntityType>
+        <EntityType Name="test">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category" Type="varchar" MaxLength="255" />
+          <Property Name="description" Type="varchar" MaxLength="255" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_4ay0lwfqa0k3uty5h4ejd1cow">
+          <End Role="candidate" Type="Self.candidate" Multiplicity="1" />
+          <End Role="cv" Type="Self.cv" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cv">
+              <PropertyRef Name="candidate_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_716wobvv9iq3ybemmwaq268uq">
+          <End Role="cv" Type="Self.cv" Multiplicity="0..1" />
+          <End Role="experienceprofessionelle" Type="Self.experienceprofessionelle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cv">
+              <PropertyRef Name="candidate_id" />
+            </Principal>
+            <Dependent Role="experienceprofessionelle">
+              <PropertyRef Name="FK_CV_EXPERIENCE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_flxoqbo6bjlnwy6jsh5amc2ef">
+          <End Role="test" Type="Self.test" Multiplicity="0..1" />
+          <End Role="question" Type="Self.question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="question">
+              <PropertyRef Name="FK_TEST_QUESTION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_i443wffs42u2tgpwsaf3mush7">
+          <End Role="cv" Type="Self.cv" Multiplicity="0..1" />
+          <End Role="skills" Type="Self.skills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cv">
+              <PropertyRef Name="candidate_id" />
+            </Principal>
+            <Dependent Role="skills">
+              <PropertyRef Name="FK_CV_SKILLS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ikkm77nhq4uk4g2g9gspee96p">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="holiday" Type="Self.holiday" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="holiday">
+              <PropertyRef Name="FK_EMPLOYEE_HOLIDAY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_k3bsr718qboy20gonp7f3gpkd">
+          <End Role="question" Type="Self.question" Multiplicity="0..1" />
+          <End Role="answer" Type="Self.answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="question">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="answer">
+              <PropertyRef Name="FK_ANSWER_QUESTION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_knfcgww545si2xkxl1wmy0r3q">
+          <End Role="cv" Type="Self.cv" Multiplicity="0..1" />
+          <End Role="formation" Type="Self.formation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cv">
+              <PropertyRef Name="candidate_id" />
+            </Principal>
+            <Dependent Role="formation">
+              <PropertyRef Name="FK_CV_FORMATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_le49qsyw3r8mbvyfjai2j4ct4">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="message" Type="Self.message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="message">
+              <PropertyRef Name="reciever_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_o1dndkfn312pfo9diqe6vqtlc">
+          <End Role="cv" Type="Self.cv" Multiplicity="0..1" />
+          <End Role="hobbie" Type="Self.hobbie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cv">
+              <PropertyRef Name="candidate_id" />
+            </Principal>
+            <Dependent Role="hobbie">
+              <PropertyRef Name="FK_CV_HOBBIE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pc9tkhsuq02db79cde4ctuq66">
+          <End Role="cv" Type="Self.cv" Multiplicity="0..1" />
+          <End Role="language" Type="Self.language" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cv">
+              <PropertyRef Name="candidate_id" />
+            </Principal>
+            <Dependent Role="language">
+              <PropertyRef Name="FK_CV_LANGUE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbto6hemu447oixxk730el2vx">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="message" Type="Self.message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="message">
+              <PropertyRef Name="sender_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="neoxamdbModelStoreContainer">
+          <EntitySet Name="admin" EntityType="Self.admin" Schema="neoxamdb" store:Type="Tables" />
+          <EntitySet Name="answer" EntityType="Self.answer" Schema="neoxamdb" store:Type="Tables" />
+          <EntitySet Name="candidate" EntityType="Self.candidate" Schema="neoxamdb" store:Type="Tables" />
+          <EntitySet Name="candidateresponse" EntityType="Self.candidateresponse" Schema="neoxamdb" store:Type="Tables" />
+          <EntitySet Name="cv" EntityType="Self.cv" Schema="neoxamdb" store:Type="Tables" />
+          <EntitySet Name="employee" EntityType="Self.employee" Schema="neoxamdb" store:Type="Tables" />
+          <EntitySet Name="experienceprofessionelle" EntityType="Self.experienceprofessionelle" Schema="neoxamdb" store:Type="Tables" />
+          <EntitySet Name="formation" EntityType="Self.formation" Schema="neoxamdb" store:Type="Tables" />
+          <EntitySet Name="hobbie" EntityType="Self.hobbie" Schema="neoxamdb" store:Type="Tables" />
+          <EntitySet Name="holiday" EntityType="Self.holiday" Schema="neoxamdb" store:Type="Tables" />
+          <EntitySet Name="language" EntityType="Self.language" Schema="neoxamdb" store:Type="Tables" />
+          <EntitySet Name="message" EntityType="Self.message" Schema="neoxamdb" store:Type="Tables" />
+          <EntitySet Name="question" EntityType="Self.question" Schema="neoxamdb" store:Type="Tables" />
+          <EntitySet Name="skills" EntityType="Self.skills" Schema="neoxamdb" store:Type="Tables" />
+          <EntitySet Name="test" EntityType="Self.test" Schema="neoxamdb" store:Type="Tables" />
+          <AssociationSet Name="FK_4ay0lwfqa0k3uty5h4ejd1cow" Association="Self.FK_4ay0lwfqa0k3uty5h4ejd1cow">
+            <End Role="candidate" EntitySet="candidate" />
+            <End Role="cv" EntitySet="cv" />
+          </AssociationSet>
+          <AssociationSet Name="FK_716wobvv9iq3ybemmwaq268uq" Association="Self.FK_716wobvv9iq3ybemmwaq268uq">
+            <End Role="cv" EntitySet="cv" />
+            <End Role="experienceprofessionelle" EntitySet="experienceprofessionelle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_flxoqbo6bjlnwy6jsh5amc2ef" Association="Self.FK_flxoqbo6bjlnwy6jsh5amc2ef">
+            <End Role="test" EntitySet="test" />
+            <End Role="question" EntitySet="question" />
+          </AssociationSet>
+          <AssociationSet Name="FK_i443wffs42u2tgpwsaf3mush7" Association="Self.FK_i443wffs42u2tgpwsaf3mush7">
+            <End Role="cv" EntitySet="cv" />
+            <End Role="skills" EntitySet="skills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ikkm77nhq4uk4g2g9gspee96p" Association="Self.FK_ikkm77nhq4uk4g2g9gspee96p">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="holiday" EntitySet="holiday" />
+          </AssociationSet>
+          <AssociationSet Name="FK_k3bsr718qboy20gonp7f3gpkd" Association="Self.FK_k3bsr718qboy20gonp7f3gpkd">
+            <End Role="question" EntitySet="question" />
+            <End Role="answer" EntitySet="answer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_knfcgww545si2xkxl1wmy0r3q" Association="Self.FK_knfcgww545si2xkxl1wmy0r3q">
+            <End Role="cv" EntitySet="cv" />
+            <End Role="formation" EntitySet="formation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_le49qsyw3r8mbvyfjai2j4ct4" Association="Self.FK_le49qsyw3r8mbvyfjai2j4ct4">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="message" EntitySet="message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_o1dndkfn312pfo9diqe6vqtlc" Association="Self.FK_o1dndkfn312pfo9diqe6vqtlc">
+            <End Role="cv" EntitySet="cv" />
+            <End Role="hobbie" EntitySet="hobbie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pc9tkhsuq02db79cde4ctuq66" Association="Self.FK_pc9tkhsuq02db79cde4ctuq66">
+            <End Role="cv" EntitySet="cv" />
+            <End Role="language" EntitySet="language" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbto6hemu447oixxk730el2vx" Association="Self.FK_tbto6hemu447oixxk730el2vx">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="message" EntitySet="message" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="neoxamdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="State" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="street" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="zipCode" Type="Int32" Nullable="false" />
+          <Property Name="dateNaissance" Type="DateTime" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="firstName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="permis" Type="Boolean" Nullable="false" />
+          <Property Name="registrationDate" Type="DateTime" />
+          <Property Name="status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="userName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="answer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="answerBody" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="correct" Type="Boolean" Nullable="false" />
+          <Property Name="FK_ANSWER_QUESTION" Type="Int32" />
+          <NavigationProperty Name="question" Relationship="Self.FK_k3bsr718qboy20gonp7f3gpkd" FromRole="answer" ToRole="question" />
+        </EntityType>
+        <EntityType Name="candidate">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="State" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="street" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="zipCode" Type="Int32" Nullable="false" />
+          <Property Name="dateNaissance" Type="DateTime" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="firstName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="permis" Type="Boolean" Nullable="false" />
+          <Property Name="registrationDate" Type="DateTime" />
+          <Property Name="status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="socialStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="cv" Relationship="Self.FK_4ay0lwfqa0k3uty5h4ejd1cow" FromRole="candidate" ToRole="cv" />
+        </EntityType>
+        <EntityType Name="candidateresponse">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCandidat" Type="Int32" Nullable="false" />
+          <Property Name="idQuestion" Type="Int32" Nullable="false" />
+          <Property Name="idResponse" Type="Int32" Nullable="false" />
+          <Property Name="idTest" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cv">
+          <Key>
+            <PropertyRef Name="candidate_id" />
+          </Key>
+          <Property Name="path" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="candidate_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="candidate" Relationship="Self.FK_4ay0lwfqa0k3uty5h4ejd1cow" FromRole="cv" ToRole="candidate" />
+          <NavigationProperty Name="experienceprofessionelle" Relationship="Self.FK_716wobvv9iq3ybemmwaq268uq" FromRole="cv" ToRole="experienceprofessionelle" />
+          <NavigationProperty Name="skills" Relationship="Self.FK_i443wffs42u2tgpwsaf3mush7" FromRole="cv" ToRole="skills" />
+          <NavigationProperty Name="formation" Relationship="Self.FK_knfcgww545si2xkxl1wmy0r3q" FromRole="cv" ToRole="formation" />
+          <NavigationProperty Name="hobbie" Relationship="Self.FK_o1dndkfn312pfo9diqe6vqtlc" FromRole="cv" ToRole="hobbie" />
+          <NavigationProperty Name="language" Relationship="Self.FK_pc9tkhsuq02db79cde4ctuq66" FromRole="cv" ToRole="language" />
+        </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="State" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="street" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="zipCode" Type="Int32" Nullable="false" />
+          <Property Name="dateNaissance" Type="DateTime" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="firstName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="permis" Type="Boolean" Nullable="false" />
+          <Property Name="registrationDate" Type="DateTime" />
+          <Property Name="status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="bonusPts" Type="Int32" Nullable="false" />
+          <Property Name="cin" Type="Int32" Nullable="false" />
+          <Property Name="nbChildren" Type="Int32" Nullable="false" />
+          <Property Name="positionHeld" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="recruitmentDate" Type="DateTime" />
+          <Property Name="salary" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="holiday" Relationship="Self.FK_ikkm77nhq4uk4g2g9gspee96p" FromRole="employee" ToRole="holiday" />
+          <NavigationProperty Name="message" Relationship="Self.FK_le49qsyw3r8mbvyfjai2j4ct4" FromRole="employee" ToRole="message" />
+          <NavigationProperty Name="message1" Relationship="Self.FK_tbto6hemu447oixxk730el2vx" FromRole="employee" ToRole="message" />
+        </EntityType>
+        <EntityType Name="experienceprofessionelle">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateDebut" Type="DateTime" />
+          <Property Name="dateFin" Type="DateTime" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="position" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="societe" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FK_CV_EXPERIENCE" Type="Int32" />
+          <NavigationProperty Name="cv" Relationship="Self.FK_716wobvv9iq3ybemmwaq268uq" FromRole="experienceprofessionelle" ToRole="cv" />
+        </EntityType>
+        <EntityType Name="formation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateDebut" Type="DateTime" />
+          <Property Name="dateFin" Type="DateTime" />
+          <Property Name="lieux" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FK_CV_FORMATION" Type="Int32" />
+          <NavigationProperty Name="cv" Relationship="Self.FK_knfcgww545si2xkxl1wmy0r3q" FromRole="formation" ToRole="cv" />
+        </EntityType>
+        <EntityType Name="hobbie">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FK_CV_HOBBIE" Type="Int32" />
+          <NavigationProperty Name="cv" Relationship="Self.FK_o1dndkfn312pfo9diqe6vqtlc" FromRole="hobbie" ToRole="cv" />
+        </EntityType>
+        <EntityType Name="holiday">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateStart" Type="DateTime" />
+          <Property Name="nbrDays" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FK_EMPLOYEE_HOLIDAY" Type="Int32" />
+          <NavigationProperty Name="employee" Relationship="Self.FK_ikkm77nhq4uk4g2g9gspee96p" FromRole="holiday" ToRole="employee" />
+        </EntityType>
+        <EntityType Name="language">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lang" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="level" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FK_CV_LANGUE" Type="Int32" />
+          <NavigationProperty Name="cv" Relationship="Self.FK_pc9tkhsuq02db79cde4ctuq66" FromRole="language" ToRole="cv" />
+        </EntityType>
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="body" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="DateTime" />
+          <Property Name="object" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="reciever_id" Type="Int32" />
+          <Property Name="sender_id" Type="Int32" />
+          <NavigationProperty Name="employee" Relationship="Self.FK_le49qsyw3r8mbvyfjai2j4ct4" FromRole="message" ToRole="employee" />
+          <NavigationProperty Name="employee1" Relationship="Self.FK_tbto6hemu447oixxk730el2vx" FromRole="message" ToRole="employee" />
+        </EntityType>
+        <EntityType Name="question">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="questionBody" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FK_TEST_QUESTION" Type="Int32" />
+          <NavigationProperty Name="answer" Relationship="Self.FK_k3bsr718qboy20gonp7f3gpkd" FromRole="question" ToRole="answer" />
+          <NavigationProperty Name="test" Relationship="Self.FK_flxoqbo6bjlnwy6jsh5amc2ef" FromRole="question" ToRole="test" />
+        </EntityType>
+        <EntityType Name="skills">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="level" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FK_CV_SKILLS" Type="Int32" />
+          <NavigationProperty Name="cv" Relationship="Self.FK_i443wffs42u2tgpwsaf3mush7" FromRole="skills" ToRole="cv" />
+        </EntityType>
+        <EntityType Name="test">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="question" Relationship="Self.FK_flxoqbo6bjlnwy6jsh5amc2ef" FromRole="test" ToRole="question" />
+        </EntityType>
+        <Association Name="FK_k3bsr718qboy20gonp7f3gpkd">
+          <End Role="question" Type="Self.question" Multiplicity="0..1" />
+          <End Role="answer" Type="Self.answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="question">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="answer">
+              <PropertyRef Name="FK_ANSWER_QUESTION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_4ay0lwfqa0k3uty5h4ejd1cow">
+          <End Role="candidate" Type="Self.candidate" Multiplicity="1" />
+          <End Role="cv" Type="Self.cv" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cv">
+              <PropertyRef Name="candidate_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_716wobvv9iq3ybemmwaq268uq">
+          <End Role="cv" Type="Self.cv" Multiplicity="0..1" />
+          <End Role="experienceprofessionelle" Type="Self.experienceprofessionelle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cv">
+              <PropertyRef Name="candidate_id" />
+            </Principal>
+            <Dependent Role="experienceprofessionelle">
+              <PropertyRef Name="FK_CV_EXPERIENCE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_i443wffs42u2tgpwsaf3mush7">
+          <End Role="cv" Type="Self.cv" Multiplicity="0..1" />
+          <End Role="skills" Type="Self.skills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cv">
+              <PropertyRef Name="candidate_id" />
+            </Principal>
+            <Dependent Role="skills">
+              <PropertyRef Name="FK_CV_SKILLS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_knfcgww545si2xkxl1wmy0r3q">
+          <End Role="cv" Type="Self.cv" Multiplicity="0..1" />
+          <End Role="formation" Type="Self.formation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cv">
+              <PropertyRef Name="candidate_id" />
+            </Principal>
+            <Dependent Role="formation">
+              <PropertyRef Name="FK_CV_FORMATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_o1dndkfn312pfo9diqe6vqtlc">
+          <End Role="cv" Type="Self.cv" Multiplicity="0..1" />
+          <End Role="hobbie" Type="Self.hobbie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cv">
+              <PropertyRef Name="candidate_id" />
+            </Principal>
+            <Dependent Role="hobbie">
+              <PropertyRef Name="FK_CV_HOBBIE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pc9tkhsuq02db79cde4ctuq66">
+          <End Role="cv" Type="Self.cv" Multiplicity="0..1" />
+          <End Role="language" Type="Self.language" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cv">
+              <PropertyRef Name="candidate_id" />
+            </Principal>
+            <Dependent Role="language">
+              <PropertyRef Name="FK_CV_LANGUE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ikkm77nhq4uk4g2g9gspee96p">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="holiday" Type="Self.holiday" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="holiday">
+              <PropertyRef Name="FK_EMPLOYEE_HOLIDAY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_le49qsyw3r8mbvyfjai2j4ct4">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="message" Type="Self.message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="message">
+              <PropertyRef Name="reciever_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbto6hemu447oixxk730el2vx">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="message" Type="Self.message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="message">
+              <PropertyRef Name="sender_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_flxoqbo6bjlnwy6jsh5amc2ef">
+          <End Role="test" Type="Self.test" Multiplicity="0..1" />
+          <End Role="question" Type="Self.question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="question">
+              <PropertyRef Name="FK_TEST_QUESTION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="neoxamdbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admin" EntityType="Self.admin" />
+          <EntitySet Name="answer" EntityType="Self.answer" />
+          <EntitySet Name="candidate" EntityType="Self.candidate" />
+          <EntitySet Name="candidateresponse" EntityType="Self.candidateresponse" />
+          <EntitySet Name="cv" EntityType="Self.cv" />
+          <EntitySet Name="employee" EntityType="Self.employee" />
+          <EntitySet Name="experienceprofessionelle" EntityType="Self.experienceprofessionelle" />
+          <EntitySet Name="formation" EntityType="Self.formation" />
+          <EntitySet Name="hobbie" EntityType="Self.hobbie" />
+          <EntitySet Name="holiday" EntityType="Self.holiday" />
+          <EntitySet Name="language" EntityType="Self.language" />
+          <EntitySet Name="message" EntityType="Self.message" />
+          <EntitySet Name="question" EntityType="Self.question" />
+          <EntitySet Name="skills" EntityType="Self.skills" />
+          <EntitySet Name="test" EntityType="Self.test" />
+          <AssociationSet Name="FK_k3bsr718qboy20gonp7f3gpkd" Association="Self.FK_k3bsr718qboy20gonp7f3gpkd">
+            <End Role="question" EntitySet="question" />
+            <End Role="answer" EntitySet="answer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_4ay0lwfqa0k3uty5h4ejd1cow" Association="Self.FK_4ay0lwfqa0k3uty5h4ejd1cow">
+            <End Role="candidate" EntitySet="candidate" />
+            <End Role="cv" EntitySet="cv" />
+          </AssociationSet>
+          <AssociationSet Name="FK_716wobvv9iq3ybemmwaq268uq" Association="Self.FK_716wobvv9iq3ybemmwaq268uq">
+            <End Role="cv" EntitySet="cv" />
+            <End Role="experienceprofessionelle" EntitySet="experienceprofessionelle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_i443wffs42u2tgpwsaf3mush7" Association="Self.FK_i443wffs42u2tgpwsaf3mush7">
+            <End Role="cv" EntitySet="cv" />
+            <End Role="skills" EntitySet="skills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_knfcgww545si2xkxl1wmy0r3q" Association="Self.FK_knfcgww545si2xkxl1wmy0r3q">
+            <End Role="cv" EntitySet="cv" />
+            <End Role="formation" EntitySet="formation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_o1dndkfn312pfo9diqe6vqtlc" Association="Self.FK_o1dndkfn312pfo9diqe6vqtlc">
+            <End Role="cv" EntitySet="cv" />
+            <End Role="hobbie" EntitySet="hobbie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pc9tkhsuq02db79cde4ctuq66" Association="Self.FK_pc9tkhsuq02db79cde4ctuq66">
+            <End Role="cv" EntitySet="cv" />
+            <End Role="language" EntitySet="language" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ikkm77nhq4uk4g2g9gspee96p" Association="Self.FK_ikkm77nhq4uk4g2g9gspee96p">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="holiday" EntitySet="holiday" />
+          </AssociationSet>
+          <AssociationSet Name="FK_le49qsyw3r8mbvyfjai2j4ct4" Association="Self.FK_le49qsyw3r8mbvyfjai2j4ct4">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="message" EntitySet="message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbto6hemu447oixxk730el2vx" Association="Self.FK_tbto6hemu447oixxk730el2vx">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="message" EntitySet="message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_flxoqbo6bjlnwy6jsh5amc2ef" Association="Self.FK_flxoqbo6bjlnwy6jsh5amc2ef">
+            <End Role="test" EntitySet="test" />
+            <End Role="question" EntitySet="question" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="neoxamdbModelStoreContainer" CdmEntityContainer="neoxamdbEntities">
+          <EntitySetMapping Name="admin">
+            <EntityTypeMapping TypeName="neoxamdbModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="zipCode" ColumnName="zipCode" />
+                <ScalarProperty Name="dateNaissance" ColumnName="dateNaissance" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="permis" ColumnName="permis" />
+                <ScalarProperty Name="registrationDate" ColumnName="registrationDate" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="answer">
+            <EntityTypeMapping TypeName="neoxamdbModel.answer">
+              <MappingFragment StoreEntitySet="answer">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="answerBody" ColumnName="answerBody" />
+                <ScalarProperty Name="correct" ColumnName="correct" />
+                <ScalarProperty Name="FK_ANSWER_QUESTION" ColumnName="FK_ANSWER_QUESTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="candidate">
+            <EntityTypeMapping TypeName="neoxamdbModel.candidate">
+              <MappingFragment StoreEntitySet="candidate">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="zipCode" ColumnName="zipCode" />
+                <ScalarProperty Name="dateNaissance" ColumnName="dateNaissance" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="permis" ColumnName="permis" />
+                <ScalarProperty Name="registrationDate" ColumnName="registrationDate" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="socialStatus" ColumnName="socialStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="candidateresponse">
+            <EntityTypeMapping TypeName="neoxamdbModel.candidateresponse">
+              <MappingFragment StoreEntitySet="candidateresponse">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idCandidat" ColumnName="idCandidat" />
+                <ScalarProperty Name="idQuestion" ColumnName="idQuestion" />
+                <ScalarProperty Name="idResponse" ColumnName="idResponse" />
+                <ScalarProperty Name="idTest" ColumnName="idTest" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cv">
+            <EntityTypeMapping TypeName="neoxamdbModel.cv">
+              <MappingFragment StoreEntitySet="cv">
+                <ScalarProperty Name="path" ColumnName="path" />
+                <ScalarProperty Name="candidate_id" ColumnName="candidate_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employee">
+            <EntityTypeMapping TypeName="neoxamdbModel.employee">
+              <MappingFragment StoreEntitySet="employee">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="zipCode" ColumnName="zipCode" />
+                <ScalarProperty Name="dateNaissance" ColumnName="dateNaissance" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="permis" ColumnName="permis" />
+                <ScalarProperty Name="registrationDate" ColumnName="registrationDate" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="bonusPts" ColumnName="bonusPts" />
+                <ScalarProperty Name="cin" ColumnName="cin" />
+                <ScalarProperty Name="nbChildren" ColumnName="nbChildren" />
+                <ScalarProperty Name="positionHeld" ColumnName="positionHeld" />
+                <ScalarProperty Name="recruitmentDate" ColumnName="recruitmentDate" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="experienceprofessionelle">
+            <EntityTypeMapping TypeName="neoxamdbModel.experienceprofessionelle">
+              <MappingFragment StoreEntitySet="experienceprofessionelle">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="dateDebut" ColumnName="dateDebut" />
+                <ScalarProperty Name="dateFin" ColumnName="dateFin" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="societe" ColumnName="societe" />
+                <ScalarProperty Name="FK_CV_EXPERIENCE" ColumnName="FK_CV_EXPERIENCE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="formation">
+            <EntityTypeMapping TypeName="neoxamdbModel.formation">
+              <MappingFragment StoreEntitySet="formation">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="dateDebut" ColumnName="dateDebut" />
+                <ScalarProperty Name="dateFin" ColumnName="dateFin" />
+                <ScalarProperty Name="lieux" ColumnName="lieux" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="FK_CV_FORMATION" ColumnName="FK_CV_FORMATION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hobbie">
+            <EntityTypeMapping TypeName="neoxamdbModel.hobbie">
+              <MappingFragment StoreEntitySet="hobbie">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="FK_CV_HOBBIE" ColumnName="FK_CV_HOBBIE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="holiday">
+            <EntityTypeMapping TypeName="neoxamdbModel.holiday">
+              <MappingFragment StoreEntitySet="holiday">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="dateStart" ColumnName="dateStart" />
+                <ScalarProperty Name="nbrDays" ColumnName="nbrDays" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="FK_EMPLOYEE_HOLIDAY" ColumnName="FK_EMPLOYEE_HOLIDAY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="language">
+            <EntityTypeMapping TypeName="neoxamdbModel.language">
+              <MappingFragment StoreEntitySet="language">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="lang" ColumnName="lang" />
+                <ScalarProperty Name="level" ColumnName="level" />
+                <ScalarProperty Name="FK_CV_LANGUE" ColumnName="FK_CV_LANGUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="message">
+            <EntityTypeMapping TypeName="neoxamdbModel.message">
+              <MappingFragment StoreEntitySet="message">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="object" ColumnName="object" />
+                <ScalarProperty Name="reciever_id" ColumnName="reciever_id" />
+                <ScalarProperty Name="sender_id" ColumnName="sender_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="question">
+            <EntityTypeMapping TypeName="neoxamdbModel.question">
+              <MappingFragment StoreEntitySet="question">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="questionBody" ColumnName="questionBody" />
+                <ScalarProperty Name="FK_TEST_QUESTION" ColumnName="FK_TEST_QUESTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="skills">
+            <EntityTypeMapping TypeName="neoxamdbModel.skills">
+              <MappingFragment StoreEntitySet="skills">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="level" ColumnName="level" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="FK_CV_SKILLS" ColumnName="FK_CV_SKILLS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="test">
+            <EntityTypeMapping TypeName="neoxamdbModel.test">
+              <MappingFragment StoreEntitySet="test">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

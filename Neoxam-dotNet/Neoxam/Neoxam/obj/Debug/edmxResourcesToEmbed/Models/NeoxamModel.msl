@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="neoxamdbModelStoreContainer" CdmEntityContainer="neoxamdbEntities">
+    <EntitySetMapping Name="admin">
+      <EntityTypeMapping TypeName="neoxamdbModel.admin">
+        <MappingFragment StoreEntitySet="admin">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="zipCode" ColumnName="zipCode" />
+          <ScalarProperty Name="dateNaissance" ColumnName="dateNaissance" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="permis" ColumnName="permis" />
+          <ScalarProperty Name="registrationDate" ColumnName="registrationDate" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="answer">
+      <EntityTypeMapping TypeName="neoxamdbModel.answer">
+        <MappingFragment StoreEntitySet="answer">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="answerBody" ColumnName="answerBody" />
+          <ScalarProperty Name="correct" ColumnName="correct" />
+          <ScalarProperty Name="FK_ANSWER_QUESTION" ColumnName="FK_ANSWER_QUESTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="candidate">
+      <EntityTypeMapping TypeName="neoxamdbModel.candidate">
+        <MappingFragment StoreEntitySet="candidate">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="zipCode" ColumnName="zipCode" />
+          <ScalarProperty Name="dateNaissance" ColumnName="dateNaissance" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="permis" ColumnName="permis" />
+          <ScalarProperty Name="registrationDate" ColumnName="registrationDate" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="socialStatus" ColumnName="socialStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="candidateresponse">
+      <EntityTypeMapping TypeName="neoxamdbModel.candidateresponse">
+        <MappingFragment StoreEntitySet="candidateresponse">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idCandidat" ColumnName="idCandidat" />
+          <ScalarProperty Name="idQuestion" ColumnName="idQuestion" />
+          <ScalarProperty Name="idResponse" ColumnName="idResponse" />
+          <ScalarProperty Name="idTest" ColumnName="idTest" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cv">
+      <EntityTypeMapping TypeName="neoxamdbModel.cv">
+        <MappingFragment StoreEntitySet="cv">
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="candidate_id" ColumnName="candidate_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employee">
+      <EntityTypeMapping TypeName="neoxamdbModel.employee">
+        <MappingFragment StoreEntitySet="employee">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="zipCode" ColumnName="zipCode" />
+          <ScalarProperty Name="dateNaissance" ColumnName="dateNaissance" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="permis" ColumnName="permis" />
+          <ScalarProperty Name="registrationDate" ColumnName="registrationDate" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="bonusPts" ColumnName="bonusPts" />
+          <ScalarProperty Name="cin" ColumnName="cin" />
+          <ScalarProperty Name="nbChildren" ColumnName="nbChildren" />
+          <ScalarProperty Name="positionHeld" ColumnName="positionHeld" />
+          <ScalarProperty Name="recruitmentDate" ColumnName="recruitmentDate" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="experienceprofessionelle">
+      <EntityTypeMapping TypeName="neoxamdbModel.experienceprofessionelle">
+        <MappingFragment StoreEntitySet="experienceprofessionelle">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dateDebut" ColumnName="dateDebut" />
+          <ScalarProperty Name="dateFin" ColumnName="dateFin" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="societe" ColumnName="societe" />
+          <ScalarProperty Name="FK_CV_EXPERIENCE" ColumnName="FK_CV_EXPERIENCE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="formation">
+      <EntityTypeMapping TypeName="neoxamdbModel.formation">
+        <MappingFragment StoreEntitySet="formation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dateDebut" ColumnName="dateDebut" />
+          <ScalarProperty Name="dateFin" ColumnName="dateFin" />
+          <ScalarProperty Name="lieux" ColumnName="lieux" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="FK_CV_FORMATION" ColumnName="FK_CV_FORMATION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hobbie">
+      <EntityTypeMapping TypeName="neoxamdbModel.hobbie">
+        <MappingFragment StoreEntitySet="hobbie">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="FK_CV_HOBBIE" ColumnName="FK_CV_HOBBIE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="holiday">
+      <EntityTypeMapping TypeName="neoxamdbModel.holiday">
+        <MappingFragment StoreEntitySet="holiday">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dateStart" ColumnName="dateStart" />
+          <ScalarProperty Name="nbrDays" ColumnName="nbrDays" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="FK_EMPLOYEE_HOLIDAY" ColumnName="FK_EMPLOYEE_HOLIDAY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="language">
+      <EntityTypeMapping TypeName="neoxamdbModel.language">
+        <MappingFragment StoreEntitySet="language">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="lang" ColumnName="lang" />
+          <ScalarProperty Name="level" ColumnName="level" />
+          <ScalarProperty Name="FK_CV_LANGUE" ColumnName="FK_CV_LANGUE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="message">
+      <EntityTypeMapping TypeName="neoxamdbModel.message">
+        <MappingFragment StoreEntitySet="message">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="body" ColumnName="body" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="object" ColumnName="object" />
+          <ScalarProperty Name="reciever_id" ColumnName="reciever_id" />
+          <ScalarProperty Name="sender_id" ColumnName="sender_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="question">
+      <EntityTypeMapping TypeName="neoxamdbModel.question">
+        <MappingFragment StoreEntitySet="question">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="questionBody" ColumnName="questionBody" />
+          <ScalarProperty Name="FK_TEST_QUESTION" ColumnName="FK_TEST_QUESTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="skills">
+      <EntityTypeMapping TypeName="neoxamdbModel.skills">
+        <MappingFragment StoreEntitySet="skills">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="level" ColumnName="level" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="FK_CV_SKILLS" ColumnName="FK_CV_SKILLS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="test">
+      <EntityTypeMapping TypeName="neoxamdbModel.test">
+        <MappingFragment StoreEntitySet="test">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

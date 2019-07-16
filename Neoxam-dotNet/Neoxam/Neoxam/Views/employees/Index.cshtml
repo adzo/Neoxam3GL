@@ -1,0 +1,135 @@
+﻿@model IEnumerable<Neoxam.Models.employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.street)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.zipCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateNaissance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.firstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.permis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.registrationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bonusPts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nbChildren)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.positionHeld)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.recruitmentDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.salary)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.city)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.street)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.zipCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateNaissance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.permis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.registrationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bonusPts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nbChildren)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.positionHeld)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.recruitmentDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.salary)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

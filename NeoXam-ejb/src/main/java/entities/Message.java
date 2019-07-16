@@ -21,6 +21,7 @@ public class Message implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private Date date;
+	private String object;
 	private String body;
 	
 	//Association;
@@ -32,6 +33,22 @@ public class Message implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="reciever_id")
 	private Employee receiver;
+
+	
+	
+	/**
+	 * @return the object
+	 */
+	public String getObject() {
+		return object;
+	}
+
+	/**
+	 * @param object the object to set
+	 */
+	public void setObject(String object) {
+		this.object = object;
+	}
 
 	/**
 	 * 

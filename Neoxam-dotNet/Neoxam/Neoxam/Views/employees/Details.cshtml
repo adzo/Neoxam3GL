@@ -1,0 +1,162 @@
+﻿@model Neoxam.Models.employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zipCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateNaissance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateNaissance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.permis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.permis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.registrationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.registrationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bonusPts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bonusPts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nbChildren)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nbChildren)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.positionHeld)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.positionHeld)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.recruitmentDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.recruitmentDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.salary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.salary)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

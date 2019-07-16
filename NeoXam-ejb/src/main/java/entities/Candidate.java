@@ -3,7 +3,9 @@ package entities;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Candidate extends User implements Serializable{
@@ -12,6 +14,11 @@ public class Candidate extends User implements Serializable{
 	
 	private String socialStatus;
 
+	//Association
+	@OneToOne(mappedBy = "candidate", cascade = CascadeType.ALL)
+	private CV cv;
+	
+	
 	/**
 	 * 
 	 */

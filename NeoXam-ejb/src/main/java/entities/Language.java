@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Language implements Serializable{
@@ -16,6 +18,15 @@ public class Language implements Serializable{
 	private int id;
 	private String lang;
 	private String level;
+	
+	
+	//association:
+	
+	@ManyToOne
+	@JoinColumn(name="FK_CV_LANGUE")
+	private CV cv;
+	
+	
 	/**
 	 * 
 	 */

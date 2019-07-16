@@ -26,6 +26,8 @@ public class Holiday implements Serializable {
 	private int nbrDays;
 	@Enumerated(EnumType.STRING)
 	private HolidaysStatus status;
+	@Enumerated(EnumType.STRING)
+	private LeaveType type;
 	
 	// Associations:
 	@ManyToOne
