@@ -1,43 +1,153 @@
-﻿<!DOCTYPE html>
-<html>
+﻿
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mon application ASP.NET</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <title>Square - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    @Styles.Render("~/Content/css/open-iconic-bootstrap.min.css")
+    @Styles.Render("~/Content/css/animate.css")
+
+
+    @Styles.Render("~/Content/css/owl.carousel.min.css")
+    @Styles.Render("~/Content/css/owl.theme.default.min.css")
+    @Styles.Render("~/Content/css/magnific-popup.css")
+
+    @Styles.Render("~/Content/css/aos.css")
+
+    @Styles.Render("~/Content/css/ionicons.min.css")
+
+
+    @Styles.Render("~/Content/css/flaticon.css")
+    @Styles.Render("~/Content/css/icomoon.css")
+    @Styles.Render("~/Content/css/style.css")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Nom de l'application", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
-                    <li>@Html.ActionLink("À propos de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <a class="navbar-brand" href="#"><span>NEOXAM</span></a>
+            <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav nav ml-auto">
+                    <li class="nav-item"><a href="#" class="nav-link" data-nav-section="home"><span>Home</span></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" data-nav-section="about"><span>About</span></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" data-nav-section="projects"><span>Projects</span></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" data-nav-section="contact"><span>Contact</span></a></li>
+                    <li class="nav-item cta">
+                        @if (Session["userId"] == null)
+                        {
+                            <a href="#" class="nav-link" id="login_link_btn">Sign-in / Sign-up</a>
+
+                        }
+                        else
+                        {
+                            <a href="#" class="nav-link">Logout Mr @Session["name"]</a>
+                        }
+                    </li>
+
                 </ul>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    </nav>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    
+
+    @RenderBody()
+
+
+    <footer class="ftco-footer ftco-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">NEOXAM</h2>
+                        <p>
+                            Empowering financial institutions.
+                            We automate complex processes at the heart of our clients’ industries, enabling them to improve their competitiveness, better serve their clients, and further manage their growth. We deliver scalable transaction processes based on a consistent, accurate, accessible and timely view of position, portfolio and market data.
+                        </p>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-4">
+                        <h2 class="ftco-heading-2">Links</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Home</a></li>
+                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>About</a></li>
+                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Services</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Portfolio Management</a></li>
+                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Data Management</a></li>
+                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Back Office</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Have a Questions?</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">Immeuble Nida, Pôle Technologique El Ghazala, 2088, Ariana</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+216 71 00 00 00</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@neoxam.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+
+                    <p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
+
+    @Scripts.Render("~/Content/js/jquery.min.js")
+    @Scripts.Render("~/Content/js/jquery-migrate-3.0.1.min.js" )
+    @Scripts.Render("~/Content/js/popper.min.js")
+    @Scripts.Render("~/Content/js/bootstrap.min.js")
+    @Scripts.Render("~/Content/js/jquery.easing.1.3.js")
+    @Scripts.Render("~/Content/js/jquery.waypoints.min.js")
+    @Scripts.Render("~/Content/js/jquery.stellar.min.js")
+    @Scripts.Render("~/Content/js/owl.carousel.min.js")
+    @Scripts.Render("~/Content/js/jquery.magnific-popup.min.js")
+    @Scripts.Render("~/Content/js/aos.js")
+    @Scripts.Render("~/Content/js/jquery.animateNumber.min.js")
+    @Scripts.Render("~/Content/js/scrollax.min.js")
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    @Scripts.Render("~/Content/js/google-map.js")
+    @Scripts.Render("~/Content/js/main.js" )
+
 </body>
-</html>
+</html> 

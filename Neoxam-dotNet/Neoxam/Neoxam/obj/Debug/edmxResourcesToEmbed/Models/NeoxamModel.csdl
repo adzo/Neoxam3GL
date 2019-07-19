@@ -390,5 +390,19 @@
       <End Role="test" EntitySet="test" />
       <End Role="question" EntitySet="question" />
     </AssociationSet>
+    <EntitySet Name="contact" EntityType="neoxamdbModel.contact" />
   </EntityContainer>
+  <EntityType Name="contact">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="company" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="message" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="Int32" Nullable="false" />
+    <Property Name="dateMessage" Type="DateTime" />
+    <Property Name="stateOfMessage" Type="Boolean" Nullable="false" />
+  </EntityType>
 </Schema>

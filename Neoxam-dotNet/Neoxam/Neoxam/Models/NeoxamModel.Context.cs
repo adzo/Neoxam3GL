@@ -40,5 +40,6 @@ namespace Neoxam.Models
         public DbSet<question> question { get; set; }
         public DbSet<skills> skills { get; set; }
         public DbSet<test> test { get; set; }
+        public DbSet<contact> contact { get; set; }
     }
 }

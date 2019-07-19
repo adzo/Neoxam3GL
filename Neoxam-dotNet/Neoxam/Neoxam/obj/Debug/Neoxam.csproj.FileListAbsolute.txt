@@ -87,3 +87,4 @@ C:\Coding\workspaces\GitRepos\PFA\Neoxam3GL\Neoxam-dotNet\Neoxam\Neoxam\obj\Debu
 C:\Coding\workspaces\GitRepos\PFA\Neoxam3GL\Neoxam-dotNet\Neoxam\Neoxam\obj\Debug\Neoxam.csproj.CopyComplete
 C:\Coding\workspaces\GitRepos\PFA\Neoxam3GL\Neoxam-dotNet\Neoxam\Neoxam\obj\Debug\Neoxam.dll
 C:\Coding\workspaces\GitRepos\PFA\Neoxam3GL\Neoxam-dotNet\Neoxam\Neoxam\obj\Debug\Neoxam.pdb
+C:\Coding\workspaces\GitRepos\PFA\Neoxam3GL\Neoxam-dotNet\Neoxam\Neoxam\obj\Debug\Neoxam.csprojAssemblyReference.cache

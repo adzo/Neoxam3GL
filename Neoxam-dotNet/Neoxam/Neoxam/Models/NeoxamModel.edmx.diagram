@@ -31,6 +31,7 @@
         <AssociationConnector Association="neoxamdbModel.FK_le49qsyw3r8mbvyfjai2j4ct4" ManuallyRouted="false" />
         <AssociationConnector Association="neoxamdbModel.FK_tbto6hemu447oixxk730el2vx" ManuallyRouted="false" />
         <AssociationConnector Association="neoxamdbModel.FK_flxoqbo6bjlnwy6jsh5amc2ef" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="neoxamdbModel.contact" Width="1.5" PointX="10.375" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

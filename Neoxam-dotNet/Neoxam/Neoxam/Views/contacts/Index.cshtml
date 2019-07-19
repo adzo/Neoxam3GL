@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Neoxam.Models.contact>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    tr[data-href] {
+        cursor: pointer;
+    }
+
+    .False {
+        font-weight: bold;
+    }
+</style>
+
+
+
+<h2>Index</h2>
+ 
+
+<table class="table">
+    <tr>
+        <th>
+            State
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateMessage)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr data-href="/contacts/Details/@item.id" data-state="@item.stateOfMessage">
+
+            @if (item.stateOfMessage)
+            {
+                <th>
+                    Read
+                </th>
+            }
+            else
+            {
+                <th> Unread </th>
+            }
+
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.dateMessage)
+            </td>
+
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const rows = document.querySelectorAll("tr[data-href]");
+        console.log(rows);
+        rows.forEach(row => {
+            row.className = row.dataset.state;
+            row.addEventListener("click", () => {
+                console.log(row.dataset.href);
+                window.location.href = row.dataset.href;
+            });
+        });
+    })
+
+</script>

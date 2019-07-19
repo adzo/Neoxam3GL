@@ -192,5 +192,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="contact">
+      <EntityTypeMapping TypeName="neoxamdbModel.contact">
+        <MappingFragment StoreEntitySet="contact">
+          <ScalarProperty Name="stateOfMessage" ColumnName="stateOfMessage" />
+          <ScalarProperty Name="dateMessage" ColumnName="dateMessage" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

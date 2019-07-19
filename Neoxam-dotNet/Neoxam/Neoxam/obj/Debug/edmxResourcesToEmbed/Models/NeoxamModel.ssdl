@@ -57,6 +57,19 @@
     <Property Name="idResponse" Type="int" Nullable="false" />
     <Property Name="idTest" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="contact">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="company" Type="varchar" MaxLength="255" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
+    <Property Name="message" Type="varchar" MaxLength="255" />
+    <Property Name="name" Type="varchar" MaxLength="255" />
+    <Property Name="phone" Type="int" Nullable="false" />
+    <Property Name="dateMessage" Type="datetime" Precision="0" />
+    <Property Name="stateOfMessage" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="cv">
     <Key>
       <PropertyRef Name="candidate_id" />
@@ -313,6 +326,7 @@
     <EntitySet Name="answer" EntityType="Self.answer" Schema="neoxamdb" store:Type="Tables" />
     <EntitySet Name="candidate" EntityType="Self.candidate" Schema="neoxamdb" store:Type="Tables" />
     <EntitySet Name="candidateresponse" EntityType="Self.candidateresponse" Schema="neoxamdb" store:Type="Tables" />
+    <EntitySet Name="contact" EntityType="Self.contact" Schema="neoxamdb" store:Type="Tables" />
     <EntitySet Name="cv" EntityType="Self.cv" Schema="neoxamdb" store:Type="Tables" />
     <EntitySet Name="employee" EntityType="Self.employee" Schema="neoxamdb" store:Type="Tables" />
     <EntitySet Name="experienceprofessionelle" EntityType="Self.experienceprofessionelle" Schema="neoxamdb" store:Type="Tables" />

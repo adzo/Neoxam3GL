@@ -1,0 +1,208 @@
+﻿@model Neoxam.Models.View_Models.TestQuestionAnswerViewModel
+
+
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-10">
+            <h4 class="control-label col-md-2">Test creation: </h4>
+
+        </div>
+    </div>
+    <div id="ValidationError" name="ValidationError">
+    </div>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.category, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.category, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.category, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="button" value="Add question!!" class="addSingleContentButton" id="addSingleContentButton" onclick="addQuestionForm()" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" onclick=" return validate();">
+
+        </div>
+    </div>
+</div>
+    <div class="questions" id="accordion">
+
+    </div>
+
+    
+
+    @Html.HiddenFor(model => model.summary, "summary")
+}
+
+
+
+
+<script type="text/javascript">
+    var answersPerQuestion = [];
+    var ids = 0;
+    function addQuestionForm() {
+        ids += 1;
+        //console.log("button question clicked to add div")
+        var index = parseInt(document.getElementById("nbrElementsOfQuestions").getAttribute("value")) + 1;
+
+
+        //console.log(index);
+        document.getElementById("nbrElementsOfQuestions").setAttribute("value", index);
+
+        var data = ' <div class="form-group"> ' +
+            '<h4> Question N°: ' + index + ' </h4>' +
+            '<label for="questionBox"' + index + '" class="control-label col-md-2" >Type your question here : </Label>' +
+            '<input type="text" id="questionBox' + index + '" class = "form-control"  onkeyup=updateRadio(' + index + ') /> </br>' +
+            
+            
+            '<tr><table id="answerBlock' + index + '" > '  +
+
+            //first answer
+            ' <tr> <td><input type="radio" onchange="radioChange()" name = "question' + index + '" data-response=""  data-question-body="" data-question = "' + index + '" data-answer= "1"  class="radioAnswers" id="radio' + ids + '"/> </td><td> <input id="textBox' + ids + '" type = "Text"  name="answerText" class = "form-control" onkeyup="displayText(' + ids + ')"/></td></tr>' +
+
+
+            '</table>' +
+
+            '<input type="button" class="btn btn-default" value="Add answer" onClick="addAnswerForm(' + index + ')" /> ' +
+
+            '  </div >';
+        answersPerQuestion[index] = 1;
+
+        //console.log(data);
+        $('.questions').append(data);
+    }
+
+    function addAnswerForm(x) {
+        ids += 1;
+        answersPerQuestion[x] += 1;
+        console.log("button clicked to add div")
+
+        var answerForm = '<tr><td><input type="radio" onchange="radioChange()"  name = "question' + x + '" class="radioAnswers" data-response="" data-question-body="" data-question = "' + x + '" data-answer= "' + answersPerQuestion[x] + '" id="radio' + ids + '" /> </td><td> <input id="textBox' + ids + '" type = "Text"  data-answer= "1" name="answerText" class = "form-control"  onkeyup="displayText(' + ids + ')"/>  </td></tr>';
+
+        var result = '#answerBlock' + x;
+        //console.log(result);
+        //console.log(answerForm);
+        $(result).append(answerForm);
+    }
+
+
+    function displayText(x) {
+        var text = document.getElementById("textBox" + x).value;
+        $('#radio' + x).attr("data-answer", text);
+        //console.log("radio" + x + ' : ' + $('#radio' + x).attr("data-answer"));
+    }
+
+
+
+    function radioChange() {
+        var questionsArray = [];
+        
+        var index = parseInt(document.getElementById("nbrElementsOfQuestions").getAttribute("value")) + 1;
+        console.log("here came to index = " + index);
+        for (var i = 1; i < index; i++) {
+            console.log(i);
+            updateRadio(i);
+        }
+
+
+        //jsonify all the answers:
+
+        for (var i = 1; i < index; i++) {
+            console.log("question" + i);
+            var answersArray = [];
+            $('input[name="question' + i + '"]').each(function () {
+                answersArray.push({
+                    'answers_data': $(this).attr("data-answer"),
+                    'answer_value': $(this).prop("checked")
+                });
+            });
+            questionsArray.push({
+                'question': $('input[name="question' + i + '"]').attr("data-question-body"),
+                'answers': answersArray
+            });
+        }
+        console.log(answersArray);
+        console.log(questionsArray);
+        var sum2 = JSON.stringify(questionsArray);
+        console.log(sum2);
+        $('#summary').val(sum2);
+        
+
+    }
+
+    function updateRadio(x) {
+        var text = document.getElementById("questionBox" + x).value;
+        $('input[type="radio"]').each(function () {
+
+            if ($(this).attr('data-question') == x) {
+
+                //console.log(text);
+                $(this).attr('data-question-body', text);
+                //console.log($(this).attr('data-question'));
+            }
+        });
+    }
+
+
+    function validate() {
+        var radios = $("input[type='radio']");
+        var target = parseInt(document.getElementById("nbrElementsOfQuestions").getAttribute("value"));
+        var counter = 0;
+        for (var i = 0; i < radios.length; i++) {
+            if (radios[i].checked) {
+                counter++;
+                
+            }
+        };
+        console.log("target: " + target);
+        console.log("counter: " + counter);
+        if (counter == target) {
+            return true
+        }
+        
+        // not checked, show error
+        document.getElementById('ValidationError').innerHTML = 'Error!! one or more radio not checked!!';
+        return false;
+    }
+
+
+</script>
+
+
+
+
+<input type="hidden" id="nbrElementsOfQuestions" value="0" />
