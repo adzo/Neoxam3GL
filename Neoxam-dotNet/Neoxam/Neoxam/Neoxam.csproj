@@ -142,6 +142,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\contactsController.cs" />
     <Compile Include="Controllers\employeesController.cs" />
+    <Compile Include="Controllers\holidaysController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\messagesController.cs" />
@@ -473,6 +474,12 @@
     <Content Include="Views\messages\Details.cshtml" />
     <Content Include="Views\messages\Edit.cshtml" />
     <Content Include="Views\messages\Index.cshtml" />
+    <Content Include="Views\holidays\Create.cshtml" />
+    <Content Include="Views\holidays\Delete.cshtml" />
+    <Content Include="Views\holidays\Details.cshtml" />
+    <Content Include="Views\holidays\Edit.cshtml" />
+    <Content Include="Views\holidays\Index.cshtml" />
+    <Content Include="Views\Login\login2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

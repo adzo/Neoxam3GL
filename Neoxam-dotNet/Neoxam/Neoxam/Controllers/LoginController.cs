@@ -21,6 +21,11 @@ namespace Neoxam.Controllers
             return View();
         }
 
+        public ActionResult Login2()
+        {
+            return View();
+        }
+
         public ActionResult PreLogin()
         {
             return View();
