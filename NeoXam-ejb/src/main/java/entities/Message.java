@@ -21,7 +21,7 @@ public class Message implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private Date date;
-	private String object;
+	private String objectOfMessage;
 	private String body;
 	
 	//Association;
@@ -39,23 +39,27 @@ public class Message implements Serializable{
 	/**
 	 * @return the object
 	 */
-	public String getObject() {
-		return object;
-	}
-
-	/**
-	 * @param object the object to set
-	 */
-	public void setObject(String object) {
-		this.object = object;
-	}
-
+	
 	/**
 	 * 
 	 */
 	public Message() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @return the objectOfMessage
+	 */
+	public String getObjectOfMessage() {
+		return objectOfMessage;
+	}
+
+	/**
+	 * @param objectOfMessage the objectOfMessage to set
+	 */
+	public void setObjectOfMessage(String objectOfMessage) {
+		this.objectOfMessage = objectOfMessage;
 	}
 
 	/**

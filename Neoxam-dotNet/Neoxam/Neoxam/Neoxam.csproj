@@ -144,6 +144,7 @@
     <Compile Include="Controllers\employeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\messagesController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\testsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -302,13 +303,6 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\NeoxamModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>NeoxamModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\NeoxamModel.edmx.diagram">
-      <DependentUpon>NeoxamModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\css\.DS_Store" />
     <Content Include="Content\css\bootstrap\.DS_Store" />
     <Content Include="Content\css\css\.DS_Store" />
@@ -423,6 +417,13 @@
     <Content Include="Content\scss\bootstrap\_utilities.scss" />
     <Content Include="Content\scss\bootstrap\_variables.scss" />
     <Content Include="Content\scss\style.scss" />
+    <EntityDeploy Include="Models\NeoxamModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NeoxamModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\NeoxamModel.edmx.diagram">
+      <DependentUpon>NeoxamModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -467,6 +468,11 @@
     <Content Include="Views\contacts\Index.cshtml" />
     <Content Include="Views\Login\PreLogin.cshtml" />
     <Content Include="Views\Login\LoginMember.cshtml" />
+    <Content Include="Views\messages\Create.cshtml" />
+    <Content Include="Views\messages\Delete.cshtml" />
+    <Content Include="Views\messages\Details.cshtml" />
+    <Content Include="Views\messages\Edit.cshtml" />
+    <Content Include="Views\messages\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -4,11 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="046f388560cc4bc3b30e86723facb392" Name="Diagram1">
+      <Diagram DiagramId="4e0bc13bf7c24b2383de7ede0547c728" Name="Diagram1">
         <EntityTypeShape EntityType="neoxamdbModel.admin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="neoxamdbModel.answer" Width="1.5" PointX="12.25" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="neoxamdbModel.candidate" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="neoxamdbModel.candidateresponse" Width="1.5" PointX="7.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="neoxamdbModel.contact" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="neoxamdbModel.cv" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="neoxamdbModel.employee" Width="1.5" PointX="7.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="neoxamdbModel.experienceprofessionelle" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
@@ -31,7 +32,6 @@
         <AssociationConnector Association="neoxamdbModel.FK_le49qsyw3r8mbvyfjai2j4ct4" ManuallyRouted="false" />
         <AssociationConnector Association="neoxamdbModel.FK_tbto6hemu447oixxk730el2vx" ManuallyRouted="false" />
         <AssociationConnector Association="neoxamdbModel.FK_flxoqbo6bjlnwy6jsh5amc2ef" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="neoxamdbModel.contact" Width="1.5" PointX="10.375" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

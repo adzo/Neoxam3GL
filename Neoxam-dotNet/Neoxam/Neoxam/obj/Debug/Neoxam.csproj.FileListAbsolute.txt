@@ -1,3 +1,4 @@
+C:\Coding\workspaces\GitRepos\PFA\Neoxam3GL\Neoxam-dotNet\Neoxam\Neoxam\obj\Debug\Neoxam.csproj.CoreCompileInputs.cache
 C:\Coding\workspaces\GitRepos\PFA\Neoxam3GL\Neoxam-dotNet\Neoxam\Neoxam\bin\Neoxam.dll.config
 C:\Coding\workspaces\GitRepos\PFA\Neoxam3GL\Neoxam-dotNet\Neoxam\Neoxam\bin\Neoxam.dll
 C:\Coding\workspaces\GitRepos\PFA\Neoxam3GL\Neoxam-dotNet\Neoxam\Neoxam\bin\Neoxam.pdb
@@ -83,7 +84,6 @@ C:\Coding\workspaces\GitRepos\PFA\Neoxam3GL\Neoxam-dotNet\Neoxam\Neoxam\bin\fr\S
 C:\Coding\workspaces\GitRepos\PFA\Neoxam3GL\Neoxam-dotNet\Neoxam\Neoxam\bin\fr\System.Web.WebPages.resources.dll
 C:\Coding\workspaces\GitRepos\PFA\Neoxam3GL\Neoxam-dotNet\Neoxam\Neoxam\bin\fr\System.Web.WebPages.Deployment.resources.dll
 C:\Coding\workspaces\GitRepos\PFA\Neoxam3GL\Neoxam-dotNet\Neoxam\Neoxam\bin\fr\System.Web.WebPages.Razor.resources.dll
-C:\Coding\workspaces\GitRepos\PFA\Neoxam3GL\Neoxam-dotNet\Neoxam\Neoxam\obj\Debug\Neoxam.csproj.CoreCompileInputs.cache
 C:\Coding\workspaces\GitRepos\PFA\Neoxam3GL\Neoxam-dotNet\Neoxam\Neoxam\obj\Debug\Neoxam.csproj.CopyComplete
 C:\Coding\workspaces\GitRepos\PFA\Neoxam3GL\Neoxam-dotNet\Neoxam\Neoxam\obj\Debug\Neoxam.dll
 C:\Coding\workspaces\GitRepos\PFA\Neoxam3GL\Neoxam-dotNet\Neoxam\Neoxam\obj\Debug\Neoxam.pdb

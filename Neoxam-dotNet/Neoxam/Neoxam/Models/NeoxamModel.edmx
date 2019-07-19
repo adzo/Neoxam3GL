@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="neoxamdbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="neoxamdbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="admin">
           <Key>
             <PropertyRef Name="id" />
@@ -164,7 +164,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="body" Type="varchar" MaxLength="255" />
           <Property Name="date" Type="datetime" Precision="0" />
-          <Property Name="object" Type="varchar" MaxLength="255" />
+          <Property Name="objectOfMessage" Type="varchar" MaxLength="255" />
           <Property Name="reciever_id" Type="int" />
           <Property Name="sender_id" Type="int" />
         </EntityType>
@@ -388,7 +388,8 @@
             <End Role="message" EntitySet="message" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="neoxamdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -450,6 +451,19 @@
           <Property Name="idQuestion" Type="Int32" Nullable="false" />
           <Property Name="idResponse" Type="Int32" Nullable="false" />
           <Property Name="idTest" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="contact">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="company" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="message" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="Int32" Nullable="false" />
+          <Property Name="dateMessage" Type="DateTime" />
+          <Property Name="stateOfMessage" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="cv">
           <Key>
@@ -554,7 +568,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="body" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="date" Type="DateTime" />
-          <Property Name="object" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="objectOfMessage" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="reciever_id" Type="Int32" />
           <Property Name="sender_id" Type="Int32" />
           <NavigationProperty Name="employee" Relationship="Self.FK_le49qsyw3r8mbvyfjai2j4ct4" FromRole="message" ToRole="employee" />
@@ -727,6 +741,7 @@
           <EntitySet Name="answer" EntityType="Self.answer" />
           <EntitySet Name="candidate" EntityType="Self.candidate" />
           <EntitySet Name="candidateresponse" EntityType="Self.candidateresponse" />
+          <EntitySet Name="contact" EntityType="Self.contact" />
           <EntitySet Name="cv" EntityType="Self.cv" />
           <EntitySet Name="employee" EntityType="Self.employee" />
           <EntitySet Name="experienceprofessionelle" EntityType="Self.experienceprofessionelle" />
@@ -782,21 +797,7 @@
             <End Role="test" EntitySet="test" />
             <End Role="question" EntitySet="question" />
           </AssociationSet>
-          <EntitySet Name="contact" EntityType="neoxamdbModel.contact" />
         </EntityContainer>
-        <EntityType Name="contact">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="company" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="message" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="phone" Type="Int32" Nullable="false" />
-          <Property Name="dateMessage" Type="DateTime" />
-          <Property Name="stateOfMessage" Type="Boolean" Nullable="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -861,6 +862,20 @@
                 <ScalarProperty Name="idQuestion" ColumnName="idQuestion" />
                 <ScalarProperty Name="idResponse" ColumnName="idResponse" />
                 <ScalarProperty Name="idTest" ColumnName="idTest" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contact">
+            <EntityTypeMapping TypeName="neoxamdbModel.contact">
+              <MappingFragment StoreEntitySet="contact">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="company" ColumnName="company" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="dateMessage" ColumnName="dateMessage" />
+                <ScalarProperty Name="stateOfMessage" ColumnName="stateOfMessage" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -959,7 +974,7 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="body" ColumnName="body" />
                 <ScalarProperty Name="date" ColumnName="date" />
-                <ScalarProperty Name="object" ColumnName="object" />
+                <ScalarProperty Name="objectOfMessage" ColumnName="objectOfMessage" />
                 <ScalarProperty Name="reciever_id" ColumnName="reciever_id" />
                 <ScalarProperty Name="sender_id" ColumnName="sender_id" />
               </MappingFragment>
@@ -994,20 +1009,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="contact">
-            <EntityTypeMapping TypeName="neoxamdbModel.contact">
-              <MappingFragment StoreEntitySet="contact">
-                <ScalarProperty Name="stateOfMessage" ColumnName="stateOfMessage" />
-                <ScalarProperty Name="dateMessage" ColumnName="dateMessage" />
-                <ScalarProperty Name="phone" ColumnName="phone" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="message" ColumnName="message" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="company" ColumnName="company" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1024,7 +1025,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
       </DesignerInfoPropertySet>
     </Options>

@@ -62,6 +62,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="contact">
+      <EntityTypeMapping TypeName="neoxamdbModel.contact">
+        <MappingFragment StoreEntitySet="contact">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="dateMessage" ColumnName="dateMessage" />
+          <ScalarProperty Name="stateOfMessage" ColumnName="stateOfMessage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="cv">
       <EntityTypeMapping TypeName="neoxamdbModel.cv">
         <MappingFragment StoreEntitySet="cv">
@@ -157,7 +171,7 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="body" ColumnName="body" />
           <ScalarProperty Name="date" ColumnName="date" />
-          <ScalarProperty Name="object" ColumnName="object" />
+          <ScalarProperty Name="objectOfMessage" ColumnName="objectOfMessage" />
           <ScalarProperty Name="reciever_id" ColumnName="reciever_id" />
           <ScalarProperty Name="sender_id" ColumnName="sender_id" />
         </MappingFragment>
@@ -189,20 +203,6 @@
           <ScalarProperty Name="category" ColumnName="category" />
           <ScalarProperty Name="description" ColumnName="description" />
           <ScalarProperty Name="name" ColumnName="name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="contact">
-      <EntityTypeMapping TypeName="neoxamdbModel.contact">
-        <MappingFragment StoreEntitySet="contact">
-          <ScalarProperty Name="stateOfMessage" ColumnName="stateOfMessage" />
-          <ScalarProperty Name="dateMessage" ColumnName="dateMessage" />
-          <ScalarProperty Name="phone" ColumnName="phone" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="message" ColumnName="message" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="company" ColumnName="company" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
