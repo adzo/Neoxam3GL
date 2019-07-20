@@ -1,48 +1,113 @@
 ﻿@model Neoxam.Models.View_Models.LoginInfo
 
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <div class="form-group">
-            <div class="col-md-10">
-                <h4 class="control-label col-md-2"></h4>
-
-            </div>
-        </div>
-
-
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.userName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.userName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.userName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.PasswordFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-4">
-                <input type="submit" value="Sign-in" class="btn btn-default">
-
-            </div>
-            <div class="col-md-offset-2 col-md-4">
-                <input type="button" value="Sign-up" class="btn btn-default">
-
-            </div>
-        </div>
-
-    </div>
-
+@{
+    Layout = null;
 }
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Square - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    @Styles.Render("~/Content/css/open-iconic-bootstrap.min.css")
+    @Styles.Render("~/Content/css/animate.css")
+
+
+    @Styles.Render("~/Content/css/owl.carousel.min.css")
+    @Styles.Render("~/Content/css/owl.theme.default.min.css")
+    @Styles.Render("~/Content/css/magnific-popup.css")
+
+    @Styles.Render("~/Content/css/aos.css")
+
+    @Styles.Render("~/Content/css/ionicons.min.css")
+
+
+    @Styles.Render("~/Content/css/flaticon.css")
+    @Styles.Render("~/Content/css/icomoon.css")
+    @Styles.Render("~/Content/css/style.css")
+    @Styles.Render("~/Content/css/custom.css")
+</head>
+<body>
+    <style>
+        .logoLogin {
+            width: 400px;
+            height: 400px;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid transparent;
+            overflow: hidden;
+            border-radius: 100%;
+            position: relative;
+        }
+
+            .logoLogin img {
+                width: 200%;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+    </style>
+    <section class="ftco-section ftco-project bg-light" data-section="projects">
+        <div class="container-fluid px-md-5">
+            <div class="row justify-content-center pb-5">
+                <div class="logoLogin"><img src="https://www.w3schools.com/w3css/img_lights.jpg" alt=""></div>
+                <div class="col-md-12 heading-section text-center ftco-animate">
+                    <span class="subheading">Espace Membre</span>
+                </div>
+            </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="row">
+                    <div class="col-md-12 testimonial">
+                        <div class="contact-form loginForm">
+
+
+                            @Html.EditorFor(model => model.userName, new { htmlAttributes = new { @class = "input", @placeholder = " Username " } })
+
+                            @Html.PasswordFor(model => model.password, new { @class = "input", @placeholder = " password " })
+                            <hr>
+                            <input type="submit" value="SignIn" class="singup-button" />
+                            <a value="SignUp" href="#" class="singup-button signup">SignUp</a>
+
+                            
+
+                        </div>
+
+                    </div>
+
+                </div>
+            }
+            </div>
+    </section>
+
+
+
+    @Scripts.Render("~/Content/js/jquery.min.js")
+    @Scripts.Render("~/Content/js/jquery-migrate-3.0.1.min.js")
+    @Scripts.Render("~/Content/js/popper.min.js")
+    @Scripts.Render("~/Content/js/bootstrap.min.js")
+    @Scripts.Render("~/Content/js/jquery.easing.1.3.js")
+    @Scripts.Render("~/Content/js/jquery.waypoints.min.js")
+    @Scripts.Render("~/Content/js/jquery.stellar.min.js")
+    @Scripts.Render("~/Content/js/owl.carousel.min.js")
+    @Scripts.Render("~/Content/js/jquery.magnific-popup.min.js")
+    @Scripts.Render("~/Content/js/aos.js")
+    @Scripts.Render("~/Content/js/jquery.animateNumber.min.js")
+    @Scripts.Render("~/Content/js/scrollax.min.js")
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    @Scripts.Render("~/Content/js/google-map.js")
+    @Scripts.Render("~/Content/js/main.js")
+
+
+</body>
+</html>

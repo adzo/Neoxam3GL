@@ -38,16 +38,29 @@ namespace Neoxam.Controllers
         }
 
         [HttpPost]
-        public ActionResult loginCandidat([Bind(Include = "userName,password")] LoginInfo credentials)
+        public ActionResult LoginCandidat([Bind(Include = "userName,password")] LoginInfo credentials)
         {
-            candidate can =  db.candidate.Where(e => e.email == credentials.userName).First();
+            candidate can;
+            try
+            {
+                 can = db.candidate.Where(e => e.email == credentials.userName).First();
+            }
+            catch
+            {
+                can = null;
+            }
+            
             if(can != null)
             {
+                if (can.password.Equals(credentials.password))
+                {
+                    Session["userId"] = can.id;
+                    Session["name"] = can.firstName;
+                    Session["type"] = "candidate";
+                    return RedirectToAction("Index");
+                }
                 //good credentials redirect to candidate space
-                Session["userId"] = can.id;
-                Session["name"] = can.firstName;
-                Session["type"] = "candidate";
-                return RedirectToAction("Index");
+                return View();
             }
             else { 
             return View();
@@ -65,14 +78,26 @@ namespace Neoxam.Controllers
         [HttpPost]
         public ActionResult LoginMember([Bind(Include = "userName,password")] LoginInfo credentials)
         {
-            employee can = db.employee.Where(e => e.email == credentials.userName).First();
+            employee can;
+            try
+            {
+                can = db.employee.Where(e => e.email == credentials.userName).First();
+            }
+            catch
+            {
+                can = null;
+            }
             if (can != null)
             {
+                if (can.password.Equals(credentials.password))
+                {
+                    Session["userId"] = can.id;
+                    Session["name"] = can.firstName;
+                    Session["type"] = "employee";
+                    return RedirectToAction("Index");
+                }
                 //good credentials redirect to candidate space
-                Session["userId"] = can.id;
-                Session["name"] = can.firstName;
-                Session["type"] = "employee";
-                return RedirectToAction("Index");
+                return View();
             }
             else
             {

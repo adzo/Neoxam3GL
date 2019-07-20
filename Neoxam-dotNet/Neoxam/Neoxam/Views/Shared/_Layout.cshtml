@@ -25,6 +25,7 @@
     @Styles.Render("~/Content/css/flaticon.css")
     @Styles.Render("~/Content/css/icomoon.css")
     @Styles.Render("~/Content/css/style.css")
+    @Styles.Render("~/Content/css/custom.css")
 </head>
 <body>
 
@@ -40,11 +41,13 @@
                     <li class="nav-item"><a href="#" class="nav-link" data-nav-section="home"><span>Home</span></a></li>
                     <li class="nav-item"><a href="#" class="nav-link" data-nav-section="about"><span>About</span></a></li>
                     <li class="nav-item"><a href="#" class="nav-link" data-nav-section="projects"><span>Projects</span></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link" data-nav-section="contact"><span>Contact</span></a></li>
+                    <li class="nav-item"><a href=""~/Login/PreLogin"" class="nav-link" data-nav-section="contact"><span>Contact</span></a></li>
                     <li class="nav-item cta">
                         @if (Session["userId"] == null)
                         {
-                            <a href="#" class="nav-link" id="login_link_btn">Sign-in / Sign-up</a>
+                            <a href="../../Login/PreLogin" class="nav-link" id="login_link_btn">Sign-in / Sign-up</a>
+                            
+
 
                         }
                         else
